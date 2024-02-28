@@ -654,7 +654,7 @@ input {
 
 .form-checkbox-text {
     font-size: 12px;
-    line-height: 1.16667;
+    line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8e8f99;
 }
@@ -667,7 +667,7 @@ input[type="checkbox"]:checked + .form-checkbox-text .form-checkbox-input {
 
 .form-checkbox-link {
     font-size: 12px;
-    line-height: 1.33333;
+    line-height: 1.33;
     letter-spacing: 0.04em;
     text-decoration: underline;
     text-decoration-skip-ink: none;
