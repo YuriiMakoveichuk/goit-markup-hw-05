@@ -198,6 +198,8 @@ input {
     color: #404BBF;
 }
 
+
+
 /* Section */
 
 .section {
@@ -221,6 +223,9 @@ input {
     line-height: 1.2;
     letter-spacing: 0.02em;
 }
+
+
+
 
 /* Hero */
 
@@ -252,6 +257,9 @@ input {
     height: 56px;
 }
 
+
+
+
 /* Our advantages */
 
 .advantages-list {
@@ -277,6 +285,10 @@ input {
     margin-bottom: 8px;
     justify-content: center;
 }
+
+
+
+
 
 /* Team */
 
@@ -313,6 +325,9 @@ input {
     text-align: center;
     margin-bottom: 8px;
 }
+
+
+
 
 /* Portfolio */
 
@@ -369,6 +384,8 @@ input {
 .portfolio-card:hover .portfolio-overlay {
     transform: translateY(0%);
 }
+
+
 
 
 /* Footer */
@@ -460,9 +477,12 @@ input {
     align-items: center;
 }
 
-.footer-icons-svg {
+.footer-button-svg {
     margin-left: 16px;
 }
+
+
+
 
 /*  Form  */
 
@@ -474,6 +494,15 @@ input {
     left: 0;
     background-color: rgba(46, 47, 66, 0.4);
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.modals-open {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
 }
 
 .modals-form {
@@ -486,17 +515,8 @@ input {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 74px 24px 24px;
+    padding: 72px 24px 24px;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.form-open {
-    opacity: 1;
-    pointer-events: auto;
-    visibility: visible;
 }
 
 .modals-form-button {
@@ -542,14 +562,7 @@ input {
 }
 
 .form-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
-.form-item {
-    line-height: 0px;
+    margin-bottom: 8px;
 }
 
 .form-label {
@@ -563,41 +576,42 @@ input {
 
 .form-block-input {
     position: relative;
-}
-
-.form-input-svg {
-    width: 18px;
-    height: 24px;
-    padding: 3px 0;
-    fill: #2e2f42;
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    transform: translateY(-50%);
+    margin-bottom: 8px;
+    height: 40px;
 }
 
 .form-input {
     border: none;
     width: 100%;
+    height: 100%;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
-    padding: 7px 12px 7px 38px;
+    padding-left: 38px;
+    background-color: transparent;
+    outline: transparent;
 }
 
+.form-input-svg {
+    fill: #2e2f42;
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .form-input:focus {
     border: 1px solid #4d5ae5;
-    outline: 0;
 }
 
-.form-input:focus+.form-input-svg {
+.form-input:focus + .form-input-svg {
     fill: #4d5ae5;
 }
 
 .form-textarea {
     height: 120px;
-    padding: 8px;
-    padding-left: 16px;
+    padding: 8px 16px;
+    resize: none;
 }
 
 .form-textarea::placeholder {
@@ -617,12 +631,17 @@ input {
 }
 
 .form-checkbox-input {
-    border: none;
+    display: inline-flex;
     width: 16px;
     height: 16px;
     margin-right: 8px;
     border-radius: 2px;
+    justify-content: center;
+    align-items: center;
     border: 1px solid rgba(46, 47, 66, 0.4);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: transparent;
+    cursor: pointer;
 }
 
 .form-checkbox-text {
@@ -630,6 +649,12 @@ input {
     line-height: 1.16667;
     letter-spacing: 0.04em;
     color: #8e8f99;
+}
+
+input[type="checkbox"]:checked + .form-checkbox-text .form-checkbox-input {
+    background-color: #404bbf;
+    border: none;
+    fill: #F4F4FD;
 }
 
 .form-checkbox-link {
@@ -642,8 +667,7 @@ input {
 }
 
 .form-button {
-    padding: 16px 32px;
-    width: 169px;
+    min-width: 169px;
     height: 56px;
     margin: 0 auto;
 }
